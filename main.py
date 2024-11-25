@@ -2,12 +2,14 @@ import string
 
 def encrypt(message,shift):
   alphabet = string.ascii_lowercase
+  for i in range(10):
+    alphabet += str(i)
   encrypted_message = ""
   
   for letter in message:
     if letter.lower() in alphabet:
       original_positiin = alphabet.index(letter.lower())
-      new_position = (original_positiin + shift) % 26
+      new_position = (original_positiin + shift) % 36
       encrypted_letter = alphabet[new_position]
       if letter.isupper():
         encrypted_letter = encrypted_letter.upper()
